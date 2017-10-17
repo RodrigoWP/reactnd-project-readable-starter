@@ -6,7 +6,7 @@ import {
 } from './actions'
 
 export const initiaState = {
-  posts: [],
+  postsData: [],
   isFetching: false
 }
 
@@ -21,7 +21,7 @@ const posts = (state = initiaState, action) => {
       return {
         ...state,
         isFetching: false,
-        posts: action.payload
+        postsData: action.payload
       }
   }
 

@@ -3,7 +3,8 @@
 import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from './containers/home'
+// import Home from './containers/home'
+import Posts from './containers/posts'
 
 import 'css/main.styl'
 import style from 'css/app.styl'
@@ -14,7 +15,7 @@ class App extends PureComponent {
       <div className={style.container}>
         <Router>
           <Switch>
-            <Route path='/' component={Home} />
+            <Route exact path='/' component={Posts} />
           </Switch>
         </Router>
       </div>
