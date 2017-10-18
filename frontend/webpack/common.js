@@ -111,6 +111,7 @@ module.exports = {
       src: paths.src,
       css: join(paths.src, 'css'),
       components: join(paths.src, 'components'),
+      layout: join(paths.src, 'layout'),
       utils: join(paths.src, 'utils'),
       'redux-flow': join(paths.src, 'redux-flow')
     }

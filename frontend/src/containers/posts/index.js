@@ -1,9 +1,12 @@
+'use strict'
+
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 
 class Posts extends PureComponent {
+
   componentDidMount () {
     const { searchPosts } = this.props
 
@@ -13,10 +16,10 @@ class Posts extends PureComponent {
   render () {
     const { posts } = this.props
 
-    console.log('Posts: ', posts)
-
     return (
-      <h1>Posts</h1>
+      <div>
+
+      </div>
     )
   }
 }

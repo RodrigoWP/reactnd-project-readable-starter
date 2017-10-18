@@ -7,6 +7,7 @@ module.exports = (config, env) => {
   const newConfig = webpackConfig(config, env)
 
   newConfig.module.rules.push(common.standardPreLoader)
+  newConfig.module.rules.push(common.stylusLoader)
   newConfig.resolve = common.resolve
 
   return newConfig
