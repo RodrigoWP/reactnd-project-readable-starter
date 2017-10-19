@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 
+import style from './posts.styl'
+
 class Posts extends PureComponent {
 
   componentDidMount () {
@@ -17,7 +19,7 @@ class Posts extends PureComponent {
     const { posts } = this.props
 
     return (
-      <div>
+      <div className={style.container}>
 
       </div>
     )

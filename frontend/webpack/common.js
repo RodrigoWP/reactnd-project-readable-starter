@@ -21,7 +21,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'Udacity p2',
+    title: 'Udacity blog',
     template: join(paths.src, 'html', 'template.html')
   },
 
