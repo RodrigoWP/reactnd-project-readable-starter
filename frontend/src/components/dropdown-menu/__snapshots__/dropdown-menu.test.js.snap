@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Dropdown menu should render correctly 1`] = `
+<div>
+  <img
+    src={Object {}}
+  />
+  <div />
+</div>
+`;
+
+exports[`Dropdown item should render correctly 1`] = `
+<div>
+  <span>
+    Editar
+  </span>
+</div>
+`;

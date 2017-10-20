@@ -16,6 +16,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/components/**/*.js",
+      "!src/components/index.js",
       "!src/**/*.story.js",
       "!src/index.js",
       "!config/*.js"
@@ -24,7 +25,7 @@
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "^.+\\.styl": "<rootDir>/config/css-stub.js"
+      "^.+\\.(styl|svg|png)$": "<rootDir>/config/css-stub.js"
     },
     "setupFiles": [
       "raf/polyfill",

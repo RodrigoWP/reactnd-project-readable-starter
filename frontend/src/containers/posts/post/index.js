@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { monthDayFormatter } from 'utils/helpers'
 
 import icnActionMenu from 'icons/action-menu.svg'
+import icnComment from 'icons/comment.svg'
 import style from './post.styl'
 
 const Post = ({ data }) => (
@@ -18,6 +19,11 @@ const Post = ({ data }) => (
       <div className={style.author}>
         <span>Rodrigo wippel</span>
         <span>{monthDayFormatter(1467166872634)}</span>
+      </div>
+      <div>
+
+
+
       </div>
     </div>
   </div>

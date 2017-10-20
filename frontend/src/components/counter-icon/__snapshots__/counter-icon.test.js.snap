@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly with count 1`] = `
+<div>
+  <label>
+    1
+  </label>
+  <img />
+</div>
+`;
+
+exports[`Should render correctly with out props 1`] = `""`;
