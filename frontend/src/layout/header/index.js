@@ -7,7 +7,7 @@ import style from './header.styl'
 
 const Header = ({ children }) => (
   <div className={style.container}>
-    <span>Udacity blog</span>
+    <span>Tech blog</span>
   </div>
 )
 

@@ -1,0 +1,50 @@
+@import "~css/variables.styl"
+
+.container
+  width 460px
+  height 260px
+  padding 20px
+  border-radius 2px
+  box-shadow 0 1px 2px 0 rgba(59, 73, 94, 0.3), inset 0 2px 0 0 $blueSemiLight
+  position relative
+
+.title
+  width 100%
+  display flex
+  justify-content space-between
+  > span
+    font-family $blogFont
+    font-size 22px
+    font-weight 600
+    cursor pointer
+    width 90%
+    display block
+
+.action
+  cursor pointer
+  position absolute
+  top 10px
+  right 5px
+
+.body
+  > span
+    font-family $blogFont
+    font-size 16px
+    color $blackLight
+
+.footer
+  position absolute
+  bottom 20px
+
+.author
+  display: flex
+  flex-direction column
+
+  > span
+    font-family $blogFont
+    font-size 16px
+  > span:nth-child(1)
+    color $blackDark
+  > span:nth-child(2)
+    color $blackLight
+

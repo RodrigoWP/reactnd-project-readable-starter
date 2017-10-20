@@ -4,11 +4,11 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
+import Post from './post'
 
 import style from './posts.styl'
 
 class Posts extends PureComponent {
-
   componentDidMount () {
     const { searchPosts } = this.props
 
@@ -20,7 +20,7 @@ class Posts extends PureComponent {
 
     return (
       <div className={style.container}>
-
+        <Post />
       </div>
     )
   }

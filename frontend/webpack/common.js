@@ -21,7 +21,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'Udacity blog',
+    title: 'Tech blog',
     template: join(paths.src, 'html', 'template.html')
   },
 
@@ -113,6 +113,7 @@ module.exports = {
       components: join(paths.src, 'components'),
       layout: join(paths.src, 'layout'),
       utils: join(paths.src, 'utils'),
+      icons: join(paths.src, 'icons'),
       'redux-flow': join(paths.src, 'redux-flow')
     }
   }

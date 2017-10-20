@@ -14,9 +14,22 @@
     "update-packages": "node scripts/update.js"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.js",
+      "!src/**/*.story.js",
+      "!src/index.js",
+      "!config/*.js"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
     "moduleNameMapper": {
-      "^.+\\.css$": "<rootDir>/config/CSSStub.js"
-    }
+      "^.+\\.styl": "<rootDir>/config/css-stub.js"
+    },
+    "setupFiles": [
+      "raf/polyfill",
+      "<rootDir>/config/setup-tests.js"
+    ]
   },
   "standard": {
     "globals": [
@@ -37,6 +50,9 @@
     "clean-webpack-plugin": "^0.1.17",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-to-json": "^3.1.4",
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.5",
     "gulp": "^3.9.1",

@@ -1,22 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { monthDayFormatter } from 'utils/helpers'
 
+import icnActionMenu from 'icons/action-menu.svg'
 import style from './post.styl'
 
-const mock = {
-  "id": "8xf0y6ziyjabvozdd253nd",
-  "timestamp": 1467166872634,
-  "title": "Udacity is the best place to learn React",
-  "body": "Everyone says so after all.",
-  "author": "thingtwo",
-  "category": "react",
-  "voteScore": 6,
-  "deleted": false
-}
-
-const Post = ({ data = mock }) => (
-  <div>
-
+const Post = ({ data }) => (
+  <div className={style.container}>
+    <img className={style.action} src={icnActionMenu} />
+    <div className={style.title}>
+      <span>Udacity is the best place to learn React</span>
+    </div>
+    <div className={style.body}>
+      <span>Everyone says so after all.</span>
+    </div>
+    <div className={style.footer}>
+      <div className={style.author}>
+        <span>Rodrigo wippel</span>
+        <span>{monthDayFormatter(1467166872634)}</span>
+      </div>
+    </div>
   </div>
 )
 
@@ -30,3 +33,5 @@ Post.propTypes = {
   voteScore: PropTypes.number.isRequired,
   deleted: PropTypes.bool.isRequired
 }
+
+export default Post
