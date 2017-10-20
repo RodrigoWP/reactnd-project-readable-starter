@@ -3,7 +3,7 @@ import React from 'react'
 import style from './dropdown-item.styl'
 
 const DropdownItem = () => (
-  <div>
+  <div className={style.container}>
     <span>Editar</span>
   </div>
 )
