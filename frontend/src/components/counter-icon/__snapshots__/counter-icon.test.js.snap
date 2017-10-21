@@ -5,7 +5,9 @@ exports[`Should render correctly with count 1`] = `
   <label>
     1
   </label>
-  <img />
+  <img
+    src=""
+  />
 </div>
 `;
 

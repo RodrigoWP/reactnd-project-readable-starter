@@ -1,4 +1,5 @@
 'use strict'
+
 import { expect } from 'chai'
 
 import { monthDayFormatter } from './index'

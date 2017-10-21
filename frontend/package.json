@@ -16,6 +16,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/components/**/*.js",
+      "src/utils/**/*.js",
       "!src/components/index.js",
       "!src/**/*.story.js",
       "!src/index.js",
@@ -83,6 +84,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "strclass": "^2.0.9"
   }
 }

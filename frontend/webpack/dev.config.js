@@ -30,6 +30,7 @@ module.exports = {
   ],
 
   module: {
+    noParse: /strclass\.min\.js$/,
     rules: [
       common.standardPreLoader,
       common.jsLoader,

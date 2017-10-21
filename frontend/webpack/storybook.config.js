@@ -8,6 +8,7 @@ module.exports = (config, env) => {
 
   newConfig.module.rules.push(common.standardPreLoader)
   newConfig.module.rules.push(common.stylusLoader)
+  newConfig.module.noParse = /strclass\.min\.js$/
   newConfig.resolve = common.resolve
 
   return newConfig

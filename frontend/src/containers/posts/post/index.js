@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { monthDayFormatter } from 'utils/helpers'
+import PostMenu from './post-menu'
 
-import icnActionMenu from 'icons/action-menu.svg'
-import icnComment from 'icons/comment.svg'
 import style from './post.styl'
 
 const Post = ({ data }) => (
   <div className={style.container}>
-    <img className={style.action} src={icnActionMenu} />
+    <PostMenu />
     <div className={style.title}>
       <span>Udacity is the best place to learn React</span>
     </div>
@@ -20,24 +19,19 @@ const Post = ({ data }) => (
         <span>Rodrigo wippel</span>
         <span>{monthDayFormatter(1467166872634)}</span>
       </div>
-      <div>
-
-
-
-      </div>
     </div>
   </div>
 )
 
 Post.propTypes = {
-  id: PropTypes.string.isRequired,
-  timestamp: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  voteScore: PropTypes.number.isRequired,
-  deleted: PropTypes.bool.isRequired
+  id: PropTypes.string,
+  timestamp: PropTypes.number,
+  title: PropTypes.string,
+  body: PropTypes.string,
+  author: PropTypes.string,
+  category: PropTypes.string,
+  voteScore: PropTypes.number,
+  deleted: PropTypes.bool
 }
 
 export default Post
