@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Dropdown } from 'components'
 
 import editIcon from 'icons/edit.svg'
@@ -20,13 +21,17 @@ class PostMenu extends Component {
   }
 
   onEdit = () => {
-    console.log('onEdit')
+    const { postId } = this.props
+
+    console.log('Edit: ', postId)
 
     this.toggleDropdown()
   }
 
   onRemove = () => {
-    console.log('onRemove')
+    const { postId } = this.props
+
+    console.log('Remove: ', postId)
 
     this.toggleDropdown()
   }
@@ -41,6 +46,10 @@ class PostMenu extends Component {
       </Dropdown>
     )
   }
+}
+
+PostMenu.propTypes = {
+  postId: PropTypes.string.isRequired
 }
 
 export default PostMenu

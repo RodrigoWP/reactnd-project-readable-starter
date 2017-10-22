@@ -2,12 +2,12 @@
 
 exports[`Should render correctly with count 1`] = `
 <div>
-  <label>
-    1
-  </label>
   <img
     src=""
   />
+  <span>
+    1
+  </span>
 </div>
 `;
 

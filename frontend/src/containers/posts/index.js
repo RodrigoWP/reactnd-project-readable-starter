@@ -16,11 +16,15 @@ class Posts extends PureComponent {
   }
 
   render () {
-    // const { posts } = this.props
+    const { posts } = this.props
 
     return (
       <div className={style.container}>
-        <Post />
+        {posts.map((post, index) => (
+          <div key={index} className={style.postCol}>
+            <Post data={post} />
+          </div>
+        ))}
       </div>
     )
   }

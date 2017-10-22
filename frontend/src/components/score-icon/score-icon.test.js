@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { CounterIcon } from './index'
+import { ScoreIcon } from './index'
 
 it('Should render correctly with out props', () => {
   const component = (
-    <CounterIcon
+    <ScoreIcon
       count={0}
       icon=''
     />)
@@ -14,7 +14,7 @@ it('Should render correctly with out props', () => {
 
 it('Should render correctly with count', () => {
   const component = (
-    <CounterIcon
+    <ScoreIcon
       count={1}
       icon=''
     />)

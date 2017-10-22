@@ -11,5 +11,7 @@ export const searchPosts = () => dispatch => {
 
   apiGet('posts')
     .then((response) => response.data)
-    .then((data) => dispatch({ type: SEARCH_POSTS_SUCCESS, payload: data }))
+    .then((data) => {
+      dispatch({ type: SEARCH_POSTS_SUCCESS, payload: data })
+    })
 }

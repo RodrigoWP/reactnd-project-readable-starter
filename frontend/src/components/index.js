@@ -1,2 +1,2 @@
-export { CounterIcon } from './counter-icon'
+export { ScoreIcon } from './score-icon'
 export { Dropdown } from './dropdown'
