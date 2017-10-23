@@ -21,15 +21,15 @@ stories.add('Basic', () => {
     }
 
     onClickItem = () => {
-      console.log("onClickItem")
+      console.log('onClickItem')
 
       this.toggleDropdown()
     }
 
-    render(){
+    render () {
       return (
-        <Dropdown key="dropdown" open={this.state.open} onClick={this.toggleDropdown}>
-          <DropdownItem onClick={this.onClickItem} icon={editIcon} label="Editar" />
+        <Dropdown key='dropdown' open={this.state.open} onClick={this.toggleDropdown}>
+          <DropdownItem onClick={this.onClickItem} icon={editIcon} label='Editar' />
         </Dropdown>
       )
     }

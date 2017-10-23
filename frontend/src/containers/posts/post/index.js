@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
 import PostMenu from './post-menu'
-import { apiGet } from 'utils/api'
+import { apiGet, apiPost } from 'utils/api'
 import VoteScore from '../vote-score'
 import CommentScore from '../comment-score'
 
@@ -10,7 +13,8 @@ import style from './post.styl'
 
 class Post extends Component {
   state = {
-    commentScore: 0
+    commentScore: 0,
+    voted: false
   }
 
   componentDidMount () {
@@ -30,9 +34,27 @@ class Post extends Component {
       })
   }
 
+  toggleVote = () => {
+    this.setState({
+      voted: !this.state.voted
+    })
+  }
+
+  votePost = () => {
+    const { data, searchPosts } = this.props
+    const { id } = data
+
+    apiPost(`posts/${id}`, {
+      option: this.state.voted ? 'downVote' : 'upVote'
+    })
+    .then(this.toggleVote)
+    .then(searchPosts)
+
+  }
+
   render () {
     const { data } = this.props
-    const { commentScore } = this.state
+    const { commentScore, voted } = this.state
 
     return (
       <div className={style.container}>
@@ -50,13 +72,15 @@ class Post extends Component {
           </div>
           <div className={style.score}>
             <CommentScore count={commentScore} />
-            <VoteScore count={data.voteScore} />
+            <VoteScore count={data.voteScore} active={voted} onClick={this.votePost} />
           </div>
         </div>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({ searchPosts }, dispatch)
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -71,4 +95,4 @@ Post.propTypes = {
   })
 }
 
-export default Post
+export default connect(null, mapDispatchToProps)(Post)

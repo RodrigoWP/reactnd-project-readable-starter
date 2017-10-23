@@ -36,7 +36,8 @@
   "standard": {
     "globals": [
       "it",
-      "expect"
+      "expect",
+      "jest"
     ]
   },
   "devDependencies": {
