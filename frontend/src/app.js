@@ -1,10 +1,11 @@
 'use strict'
 
 import React, { PureComponent } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Layout from 'layout'
 
 import Posts from './containers/posts'
+import PostDetails from './containers/post-details'
 
 import 'css/main.styl'
 
@@ -17,7 +18,10 @@ class App extends PureComponent {
         <Header />
         <Router>
           <Content>
-            <Route exact path='/' component={Posts} />
+            <Switch>
+              <Route exact path='/' component={Posts} />
+              <Route path='/:postId' component={PostDetails} />
+            </Switch>
           </Content>
         </Router>
       </Layout>

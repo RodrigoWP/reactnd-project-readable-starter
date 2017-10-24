@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router-dom'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
 import PostMenu from './post-menu'
@@ -52,6 +53,13 @@ class Post extends Component {
 
   }
 
+  navigateToPost = () => {
+    const { history, data } = this.props
+    const { id } = data
+    
+    history.push(`/${id}`)
+  }
+
   render () {
     const { data } = this.props
     const { commentScore, voted } = this.state
@@ -59,7 +67,7 @@ class Post extends Component {
     return (
       <div className={style.container}>
         <PostMenu postId={data.id} />
-        <div className={style.title}>
+        <div className={style.title} onClick={this.navigateToPost}>
           <span>{data.title}</span>
         </div>
         <div className={style.body}>
@@ -95,4 +103,4 @@ Post.propTypes = {
   })
 }
 
-export default connect(null, mapDispatchToProps)(Post)
+export default connect(null, mapDispatchToProps)(withRouter(Post))
