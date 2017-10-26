@@ -6,7 +6,7 @@ import style from './header.styl'
 
 const Header = ({ author, date }) => (
   <div className={style.container}>
-    <span>{author}</span>,
+    <span>{author}</span>
     <span>{monthDayFormatter(date)}</span>
   </div>
 )

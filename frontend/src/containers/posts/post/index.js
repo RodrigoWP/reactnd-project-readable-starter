@@ -50,7 +50,6 @@ class Post extends Component {
     })
     .then(this.toggleVote)
     .then(searchPosts)
-
   }
 
   navigateToPost = () => {

@@ -3,7 +3,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Route, Switch } from 'react-router-dom'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import Post from './post'
 
@@ -16,7 +15,7 @@ class Posts extends PureComponent {
     searchPosts()
   }
 
-  render () { 
+  render () {
     const { posts } = this.props
 
     return (
