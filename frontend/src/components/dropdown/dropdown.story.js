@@ -11,7 +11,7 @@ const stories = storiesOf('dropdown', module)
 stories.add('Basic', () => {
   class DropdownUsage extends Component {
     state = {
-      
+
       open: false
     }
 

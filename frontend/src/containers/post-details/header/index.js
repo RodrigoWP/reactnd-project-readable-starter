@@ -12,8 +12,8 @@ const Header = ({ author, date }) => (
 )
 
 Header.propTypes = {
-  author: PropTypes.string.isRequired,
-  date: PropTypes.number.isRequired
+  author: PropTypes.string,
+  date: PropTypes.number
 }
 
 export default Header

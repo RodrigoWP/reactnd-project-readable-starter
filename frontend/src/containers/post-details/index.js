@@ -16,17 +16,15 @@ class PostDetails extends Component {
     this.searchPost()
   }
 
-  searchPost = () => {
+  searchPost = async () => {
     const { match } = this.props
     const { postId } = match.params
 
-    apiGet(`posts/${postId}`)
-      .then(response => response.data)
-      .then(data => {
-        this.setState({
-          postDetail: data
-        })
-      })
+    const { data } = await apiGet(`posts/${postId}`)
+
+    this.setState({
+      postDetail: data
+    })
   }
 
   render () {
@@ -39,7 +37,7 @@ class PostDetails extends Component {
         <Header author={postDetail.author} date={postDetail.timestamp} />
         <Title title={postDetail.title} />
         <Posting posting={postDetail.body} />
-        <Comments postId={postId} />
+        <Comments postId={postId} author={postDetail.author} />
       </div>
     )
   }

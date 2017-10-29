@@ -55,7 +55,7 @@ class Post extends Component {
   navigateToPost = () => {
     const { history, data } = this.props
     const { id } = data
-    
+
     history.push(`/${id}`)
   }
 

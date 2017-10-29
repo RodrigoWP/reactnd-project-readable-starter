@@ -1,0 +1,35 @@
+@import '~css/variables.styl'
+
+.container
+  border 0
+  outline 0
+  cursor pointer
+  width 130px
+  height 40px
+  font-weight 600
+  font-size 14px
+  border-radius 2px
+  transition: background-color 0.1s linear, border-color 0.1s linear
+  color $grayDark
+  background-color $white
+  border solid 1px $gray
+
+  &:hover 
+    background-color $grayLight
+    border solid 1px $gray
+
+  &:active
+    background-color $grayLight
+    box-shadow inset 0 1px 3px 0 $graySemiDark
+    border solid 1px rgba(197, 208, 225, 1)
+
+.primary
+  color $white 
+  background-color $blueSemiDark
+
+  &:hover
+    background-color $blue
+
+  &:active
+    background-color $blueSemiDark
+    box-shadow inset 0 1px 3px 0 #073050

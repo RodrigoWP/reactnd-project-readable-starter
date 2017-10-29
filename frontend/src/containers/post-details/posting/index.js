@@ -10,7 +10,7 @@ const Posting = ({ posting }) => (
 )
 
 Posting.propTypes = {
-  posting: PropTypes.string.isRequired
+  posting: PropTypes.string
 }
 
 export default Posting
