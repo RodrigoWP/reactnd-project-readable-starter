@@ -9,7 +9,7 @@ exports[`Should render DropdownItem correctly 1`] = `
 exports[`Should render correctly 1`] = `
 <div>
   <img
-    src={Object {}}
+    src=""
   />
   <div
     className=""

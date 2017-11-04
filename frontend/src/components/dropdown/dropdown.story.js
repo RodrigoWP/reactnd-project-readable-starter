@@ -30,7 +30,8 @@ stories.add('Basic', () => {
     render () {
       return (
         <Dropdown key='dropdown' open={this.state.open} onClick={this.toggleDropdown}>
-          <DropdownItem onClick={this.onClickItem} icon={editIcon} label='Editar' />
+          <DropdownItem onClick={this.onClickItem} icon={editIcon} label='Item 1' />
+          <DropdownItem onClick={this.onClickItem} icon={editIcon} label='Item 2' />
         </Dropdown>
       )
     }

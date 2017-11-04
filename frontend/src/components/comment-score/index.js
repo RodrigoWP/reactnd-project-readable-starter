@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ScoreIcon } from 'components'
+import { ScoreIcon } from '../score-icon'
 
 import icnComment from 'icons/comment.png'
 
@@ -15,4 +15,4 @@ CommentScore.propTypes = {
   count: PropTypes.number
 }
 
-export default CommentScore
+export { CommentScore }

@@ -5,10 +5,8 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
-import PostMenu from './post-menu'
 import { apiGet, apiPost } from 'utils/api'
-import VoteScore from '../vote-score'
-import CommentScore from '../comment-score'
+import { VoteScore, CommentScore, CrudMenu } from 'components'
 
 import style from './post.styl'
 
@@ -22,17 +20,14 @@ class Post extends Component {
     this.searchComments()
   }
 
-  searchComments = () => {
+  searchComments = async () => {
     const { data } = this.props
     const { id } = data
+    const comments = await apiGet(`posts/${id}/comments`)
 
-    apiGet(`posts/${id}/comments`)
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({
-          commentScore: data.length
-        })
-      })
+    this.setState({
+      commentScore: comments.data.length
+    })
   }
 
   toggleVote = () => {
@@ -41,15 +36,16 @@ class Post extends Component {
     })
   }
 
-  votePost = () => {
+  votePost = async () => {
     const { data, searchPosts } = this.props
     const { id } = data
 
-    apiPost(`posts/${id}`, {
+    await apiPost(`posts/${id}`, {
       option: this.state.voted ? 'downVote' : 'upVote'
     })
-    .then(this.toggleVote)
-    .then(searchPosts)
+
+    this.toggleVote()
+    searchPosts()
   }
 
   navigateToPost = () => {
@@ -65,7 +61,11 @@ class Post extends Component {
 
     return (
       <div className={style.container}>
-        <PostMenu postId={data.id} />
+        <CrudMenu
+          id={data.id}
+          handleEdit={id => console.log(id)}
+          handleRemove={id => console.log(id)}
+        />
         <div className={style.title} onClick={this.navigateToPost}>
           <span>{data.title}</span>
         </div>

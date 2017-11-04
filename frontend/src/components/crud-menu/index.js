@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Dropdown } from 'components'
+import { Dropdown } from '../dropdown'
 
 import editIcon from 'icons/edit.svg'
 import removeIcon from 'icons/remove.svg'
 
-import style from './post-menu.styl'
+import style from './crud-menu.styl'
 
 const { DropdownItem } = Dropdown
 
-class PostMenu extends Component {
+class CrudMenu extends Component {
   state = {
     open: false
   }
@@ -21,18 +21,16 @@ class PostMenu extends Component {
   }
 
   onEdit = () => {
-    const { postId } = this.props
+    const { id, handleEdit } = this.props
 
-    console.log('Edit: ', postId)
-
+    handleEdit(id)
     this.toggleDropdown()
   }
 
   onRemove = () => {
-    const { postId } = this.props
+    const { id, handleRemove } = this.props
 
-    console.log('Remove: ', postId)
-
+    handleRemove(id)
     this.toggleDropdown()
   }
 
@@ -48,8 +46,10 @@ class PostMenu extends Component {
   }
 }
 
-PostMenu.propTypes = {
-  postId: PropTypes.string.isRequired
+CrudMenu.propTypes = {
+  id: PropTypes.string.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired
 }
 
-export default PostMenu
+export { CrudMenu }

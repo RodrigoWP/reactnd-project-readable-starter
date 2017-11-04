@@ -1,3 +1,6 @@
 export { ScoreIcon } from './score-icon'
 export { Dropdown } from './dropdown'
 export { Button } from './button'
+export { CommentScore } from './comment-score'
+export { VoteScore } from './vote-score'
+export { CrudMenu } from './crud-menu'

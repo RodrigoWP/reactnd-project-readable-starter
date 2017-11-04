@@ -27,7 +27,9 @@
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "^.+\\.(styl|svg|png)$": "<rootDir>/config/css-stub.js"
+      "^.+\\.(styl)$": "<rootDir>/config/css-stub.js",
+      "^.+\\.(svg|png)$": "<rootDir>/config/icon-stub.js",
+      "^icons(.*)$": "<rootDir>/src/icons$1"
     },
     "setupFiles": [
       "raf/polyfill",
@@ -42,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.14",
     "@storybook/react": "^3.2.13",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",

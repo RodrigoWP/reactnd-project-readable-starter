@@ -16,12 +16,6 @@ class Comments extends PureComponent {
     this.searchComments()
   }
 
-  // componentWillReceiveProps (nextProps) {
-  //   const { postId } = nextProps
-
-  //   this.searchComments(postId)
-  // }
-
   searchComments = async () => {
     const { postId } = this.props
     const { data } = await apiGet(`/posts/${postId}/comments`)
@@ -65,26 +59,29 @@ class Comments extends PureComponent {
     const { comment, comments } = this.state
 
     return (
-      <div>
+      <div className={style.container}>
+        <span>Comments</span>
+        <textarea onChange={this.onChangeComment} value={comment} />
+        <div className={style.actions}>
+          <Button
+            label='Publish'
+            primary
+            onClick={this.publishComment}
+          />
+          <Button
+            label='Cancel'
+            onClick={this.clearComment}
+          />
+        </div>
         <div className={style.comments}>
-          <span>Comments</span>
-          <textarea onChange={this.onChangeComment} value={comment} />
-          <div className={style.actions}>
-            <Button
-              label='Publish'
-              primary
-              onClick={this.publishComment}
-            />
-            <Button
-              label='Cancel'
-              onClick={this.clearComment}
-            />
+          {comments.map((comment, index) => (
             <div>
-              {comments.map((comment, index) => (
+              <div>
+                <span>{comment.author}</span>
                 <span>{comment.body}</span>
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     )
