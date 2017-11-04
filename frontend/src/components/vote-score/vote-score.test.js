@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { VoteScore } from '.'
 
 it('Should render correctly', () => {
