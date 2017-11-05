@@ -30,3 +30,37 @@
   display flex
   flex-direction column
   margin-top 20px
+  height 300px
+  overflow-y auto
+  overflow-x hidden
+
+.comment
+  width 100%
+  border-radius 2px
+  border 1px solid $graySemiLight
+  position relative
+  padding 10px 0px 10px 10px
+
+  &:not(:first-child)
+    margin-top 20px
+
+.authorComment
+  display flex
+  flex-direction column
+
+  > span
+    font-family $blogFont
+    font-size 16px
+
+  > span:nth-child(1)
+    color $blackDark
+
+  > span:nth-child(2)
+    color $blackLight
+
+.bodyComment
+  width 100%
+  margin-top 15px
+
+.actionsComment
+  margin-top 15px

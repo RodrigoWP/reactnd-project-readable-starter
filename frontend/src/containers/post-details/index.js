@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { apiGet } from 'utils/api'
 import Header from './header'
 import Title from './title'
@@ -7,7 +7,7 @@ import Comments from './comments'
 
 import style from './post-details.styl'
 
-class PostDetails extends Component {
+class PostDetails extends PureComponent {
   state = {
     postDetail: {}
   }
