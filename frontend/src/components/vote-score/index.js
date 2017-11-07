@@ -1,19 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ScoreIcon } from '../score-icon'
+import { Button } from '../button'
 
-const VoteScore = ({ count = 0, active = false, onClick }) => (
-  <ScoreIcon
-    icon={require(`icons/clap${active ? '-active' : ''}.png`)}
-    count={count}
-    onClick={onClick}
-  />
+import upArrowIcon from 'icons/up-arrow.svg'
+import upDownIcon from 'icons/down-arrow.svg'
+
+import style from './vote-score.styl'
+
+const VoteScore = ({ count = 0, onClickUp, onClickDown }) => (
+  <div className={style.container}>
+    <Button
+      icon={upDownIcon}
+      width='30px'
+      height='30px'
+      iconSize='14px'
+      onClick={onClickDown}
+    />
+    <span>
+      {count}
+    </span>
+    <Button
+      icon={upArrowIcon}
+      width='30px'
+      height='30px'
+      iconSize='14px'
+      onClick={onClickUp}
+    />
+  </div>
 )
 
 VoteScore.propTypes = {
   count: PropTypes.number,
-  active: PropTypes.bool,
-  onClick: PropTypes.func
+  onClickUp: PropTypes.func,
+  onClickDown: PropTypes.func
 }
 
 export { VoteScore }

@@ -1,5 +1,7 @@
-import React, { PureComponent } from 'react'
-import { apiGet } from 'utils/api'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { searchPost } from 'redux-flow/reducers/post-details/action-creators'
 import Header from './header'
 import Title from './title'
 import Posting from './posting'
@@ -7,34 +9,41 @@ import Comments from './comments'
 
 import style from './post-details.styl'
 
-class PostDetails extends PureComponent {
-  state = {
-    postDetail: {}
-  }
+class PostDetails extends Component {
+  state = { }
 
   componentDidMount () {
     this.searchPost()
   }
 
-  searchPost = async () => {
-    const { match } = this.props
+  searchPost = () => {
+    const { searchPost, match } = this.props
     const { postId } = match.params
 
-    const { data } = await apiGet(`posts/${postId}`)
+    searchPost(postId)
+  }
 
-    this.setState({
-      postDetail: data
-    })
+  editPost = (id) => {
+
+  }
+
+  removePost = (id) => {
+
   }
 
   render () {
-    const { postDetail } = this.state
-    const { match } = this.props
+    const { postDetail, match } = this.props
     const { postId } = match.params
 
     return (
       <div className={style.container}>
-        <Header author={postDetail.author} date={postDetail.timestamp} />
+        <Header
+          postId={postId}
+          author={postDetail.author}
+          date={postDetail.timestamp}
+          handleEditPost={this.editPost}
+          handleRemovePost={this.removePost}
+        />
         <Title title={postDetail.title} />
         <Posting posting={postDetail.body} />
         <Comments postId={postId} author={postDetail.author} />
@@ -43,4 +52,10 @@ class PostDetails extends PureComponent {
   }
 }
 
-export default PostDetails
+const mapStateToProps = ({ postDetails }) => ({
+  postDetail: postDetails.post
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({ searchPost }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetails)

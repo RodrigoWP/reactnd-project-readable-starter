@@ -3,7 +3,15 @@
 exports[`Should render correctly 1`] = `
 <button
   className=""
+  style={
+    Object {
+      "height": "40px",
+      "width": "130px",
+    }
+  }
 >
-  default
+  <span>
+    default
+  </span>
 </button>
 `;

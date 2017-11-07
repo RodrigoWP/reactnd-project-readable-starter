@@ -12,8 +12,7 @@ import style from './post.styl'
 
 class Post extends Component {
   state = {
-    commentScore: 0,
-    voted: false
+    commentScore: 0
   }
 
   componentDidMount () {
@@ -30,21 +29,25 @@ class Post extends Component {
     })
   }
 
-  toggleVote = () => {
-    this.setState({
-      voted: !this.state.voted
-    })
-  }
-
-  votePost = async () => {
+  voteUp = async () => {
     const { data, searchPosts } = this.props
     const { id } = data
 
     await apiPost(`posts/${id}`, {
-      option: this.state.voted ? 'downVote' : 'upVote'
+      option: 'upVote'
     })
 
-    this.toggleVote()
+    searchPosts()
+  }
+
+  voteDown = async () => {
+    const { data, searchPosts } = this.props
+    const { id } = data
+
+    await apiPost(`posts/${id}`, {
+      option: 'downVote'
+    })
+
     searchPosts()
   }
 
@@ -57,7 +60,7 @@ class Post extends Component {
 
   render () {
     const { data } = this.props
-    const { commentScore, voted } = this.state
+    const { commentScore } = this.state
 
     return (
       <div className={style.container}>
@@ -79,7 +82,11 @@ class Post extends Component {
           </div>
           <div className={style.score}>
             <CommentScore count={commentScore} />
-            <VoteScore count={data.voteScore} active={voted} onClick={this.votePost} />
+            <VoteScore
+              count={data.voteScore}
+              onClickUp={this.voteUp}
+              onClickDown={this.voteDown}
+            />
           </div>
         </div>
       </div>

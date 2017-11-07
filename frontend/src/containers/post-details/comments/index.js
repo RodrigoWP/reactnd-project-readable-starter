@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { apiGet, apiPost, apiDelete, apiPut } from 'utils/api'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { searchComments } from 'redux-flow/reducers/post-details/action-creators'
+import { apiPost, apiDelete, apiPut } from 'utils/api'
 import { monthDayFormatter } from 'utils/helpers'
 import { Button, VoteScore, CrudMenu } from 'components'
 import { v1 as uuid } from 'uuid'
@@ -10,7 +13,6 @@ import style from './comments.styl'
 class Comments extends PureComponent {
   state = {
     idEdit: null,
-    comments: [],
     comment: '',
     editMode: false
   }
@@ -19,13 +21,10 @@ class Comments extends PureComponent {
     this.searchComments()
   }
 
-  searchComments = async () => {
-    const { postId } = this.props
-    const { data } = await apiGet(`/posts/${postId}/comments`)
+  searchComments = () => {
+    const { postId, searchComments } = this.props
 
-    this.setState({
-      comments: data
-    })
+    searchComments(postId)
   }
 
   onChangeComment = (e) => {
@@ -67,13 +66,20 @@ class Comments extends PureComponent {
     })
   }
 
-  voteComment = async (id) => {
-    const { comments } = this.state
-    const commentVoted = comments.find(comment => comment.id === id)
-
-    await apiPost(`comments/${commentVoted.id}`, {
-      option: commentVoted.voted ? 'downVote' : 'upVote'
+  voteUp = async (id) => {
+    await apiPost(`comments/${id}`, {
+      option: 'upVote'
     })
+
+    this.searchComments()
+  }
+
+  voteDown = async (id) => {
+    await apiPost(`comments/${id}`, {
+      option: 'downVote'
+    })
+
+    this.searchComments()
   }
 
   editComment = (id, comment) => {
@@ -90,7 +96,8 @@ class Comments extends PureComponent {
   }
 
   render () {
-    const { comment, comments, editMode } = this.state
+    const { comment, editMode } = this.state
+    const { comments } = this.props
 
     return (
       <div className={style.container}>
@@ -125,9 +132,9 @@ class Comments extends PureComponent {
               <div className={style.actionsComment}>
                 <VoteScore
                   count={comment.voteScore}
-                  active={comment.voted}
-                  onClick={() => this.voteComment(comment.id)}
-                />
+                  onClickUp={() => this.voteUp(comment.id)}
+                  onClickDown={() => this.voteDown(comment.id)}
+              />
               </div>
             </div>
           ))}
@@ -142,4 +149,10 @@ Comments.propTypes = {
   author: PropTypes.string
 }
 
-export default Comments
+const mapStateToProps = ({ postDetails }) => ({
+  comments: postDetails.comments
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({ searchComments }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comments)

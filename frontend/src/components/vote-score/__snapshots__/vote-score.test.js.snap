@@ -1,8 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render correctly 1`] = `
-<ScoreIcon
-  count={0}
-  icon=""
-/>
+<div>
+  <Button
+    height="30px"
+    icon=""
+    iconSize="14px"
+    width="30px"
+  />
+  <span>
+    0
+  </span>
+  <Button
+    height="30px"
+    icon=""
+    iconSize="14px"
+    width="30px"
+  />
+</div>
 `;

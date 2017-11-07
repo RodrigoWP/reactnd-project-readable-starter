@@ -6,31 +6,31 @@ import { VoteScore } from '.'
 
 const stories = storiesOf('vote-score', module)
 
-stories.add('basic usage', () => (
-  <VoteScore />
-))
-
-stories.add('with random count', () => (
-  <VoteScore count={4} />
-))
-
-stories.add('toggle active', () => {
+stories.add('basic usage', () => {
   class Story extends Component {
     state = {
-      active: false,
       count: 0
     }
 
-    activeToggle = () => {
+    up = () => {
       this.setState(state => ({
-        active: !state.active,
-        count: state.active ? state.count - 1 : state.count + 1
+        count: state.count + 1
+      }))
+    }
+
+    down = () => {
+      this.setState(state => ({
+        count: state.count - 1
       }))
     }
 
     render () {
       return (
-        <VoteScore count={this.state.count} active={this.state.active} onClick={this.activeToggle} />
+        <VoteScore
+          count={this.state.count}
+          onClickUp={this.up}
+          onClickDown={this.down}
+        />
       )
     }
   }
