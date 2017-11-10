@@ -2,9 +2,12 @@
 
 import {
   SEARCH_POST,
-  SEARCH_COMMENTS
+  SEARCH_COMMENTS,
+  PUBLISH_NEW_COMMENT,
+  PUBLISH_EDIT_COMMENT
  } from './actions'
-import { apiGet } from 'utils/api'
+import { apiGet, apiPost, apiPut } from 'utils/api'
+import { v1 as uuid } from 'uuid'
 
 export const searchPost = postId => dispatch => {
   apiGet(`posts/${postId}`)
@@ -16,4 +19,10 @@ export const searchComments = postId => dispatch => {
   apiGet(`/posts/${postId}/comments`)
     .then(response => response.data)
     .then(data => dispatch({ type: SEARCH_COMMENTS, payload: data }))
+}
+
+export const publishNewComment = payload => dispatch => {
+  apiPost('/comments', { id: uuid(), ...payload })
+    .then(response => response.data)
+    .then(data => dispatch({ type: PUBLISH_NEW_COMMENT, payload: data }))
 }
