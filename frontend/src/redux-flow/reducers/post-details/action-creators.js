@@ -24,5 +24,5 @@ export const searchComments = postId => dispatch => {
 export const publishNewComment = payload => dispatch => {
   apiPost('/comments', { id: uuid(), ...payload })
     .then(response => response.data)
-    .then(data => dispatch({ type: PUBLISH_NEW_COMMENT, payload: data }))
+    .then(data => dispatch({ type: PUBLISH_NEW_COMMENT, payload: data }))   
 }
