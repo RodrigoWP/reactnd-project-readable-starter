@@ -1,13 +1,11 @@
 'use strict'
 
 import {
-  SEARCH_POSTS,
-  SEARCH_POSTS_SUCCESS
+  SEARCH_POSTS
 } from './actions'
 
 export const initiaState = {
-  postsData: [],
-  isFetching: false
+  postsData: []
 }
 
 const posts = (state = initiaState, action) => {
@@ -15,12 +13,6 @@ const posts = (state = initiaState, action) => {
     case SEARCH_POSTS:
       return {
         ...state,
-        isFetching: true
-      }
-    case SEARCH_POSTS_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
         postsData: action.payload
       }
   }

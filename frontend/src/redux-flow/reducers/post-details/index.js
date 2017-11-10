@@ -2,7 +2,8 @@
 
 import {
   SEARCH_POST,
-  SEARCH_COMMENTS
+  SEARCH_COMMENTS,
+  PUBLISH_NEW_COMMENT
 } from './actions'
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
   comments: []
 }
 
-const postDetail = (state = initialState, action) => {
+const postDetails = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_POST:
       return {
@@ -22,9 +23,14 @@ const postDetail = (state = initialState, action) => {
         ...state,
         comments: action.payload
       }
+    case PUBLISH_NEW_COMMENT:
+      return {
+        ...state,
+        comments: action.payload
+      }
   }
 
   return state
 }
 
-export default postDetail
+export default postDetails

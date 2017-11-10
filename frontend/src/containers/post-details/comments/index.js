@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { searchComments } from 'redux-flow/reducers/post-details/action-creators'
+import { searchComments, publishNewComment } from 'redux-flow/reducers/post-details/action-creators'
 import { apiPost, apiDelete, apiPut } from 'utils/api'
 import { monthDayFormatter } from 'utils/helpers'
 import { Button, VoteScore, CrudMenu } from 'components'
@@ -10,7 +10,7 @@ import { v1 as uuid } from 'uuid'
 
 import style from './comments.styl'
 
-class Comments extends PureComponent {
+class Comments extends Component {
   state = {
     idEdit: null,
     comment: '',
@@ -37,7 +37,7 @@ class Comments extends PureComponent {
 
   publishComment = async () => {
     const { comment, editMode } = this.state
-    const { postId, author } = this.props
+    const { postId, author, publishNewComment } = this.props
 
     const payload = {
       timestamp: new Date(),
@@ -46,16 +46,17 @@ class Comments extends PureComponent {
       parentId: postId
     }
 
-    if (editMode) {
-      const { idEdit } = this.state
+    publishNewComment(payload)
 
-      await apiPut(`/comments/${idEdit}`, payload)
-    } else {
-      await apiPost('/comments', { id: uuid(), ...payload })
-    }
+    // if (editMode) {
+    //   const { idEdit } = this.state
 
-    this.searchComments()
-    this.clearComment()
+    //   await apiPut(`/comments/${idEdit}`, payload)
+    // } else {
+    //   await apiPost('/comments', { id: uuid(), ...payload })
+    // }
+
+    // this.clearComment()
   }
 
   clearComment = () => {
@@ -153,6 +154,6 @@ const mapStateToProps = ({ postDetails }) => ({
   comments: postDetails.comments
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ searchComments }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ searchComments, publishNewComment }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments)

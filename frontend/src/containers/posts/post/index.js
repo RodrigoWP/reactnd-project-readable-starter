@@ -7,6 +7,7 @@ import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
 import { apiGet, apiPost } from 'utils/api'
 import { VoteScore, CommentScore, CrudMenu } from 'components'
+import CategoryTag from './category-tag'
 
 import style from './post.styl'
 
@@ -64,6 +65,7 @@ class Post extends Component {
 
     return (
       <div className={style.container}>
+        <CategoryTag category={data.category} />
         <CrudMenu
           id={data.id}
           handleEdit={id => console.log(id)}
