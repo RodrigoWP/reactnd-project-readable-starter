@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { searchPost } from 'redux-flow/reducers/post-details/action-creators'
+import { searchPost, searchComments } from 'redux-flow/reducers/post-details/action-creators'
 import Header from './header'
 import Title from './title'
 import Posting from './posting'
 import Comments from './comments'
+import { PostScore } from 'components'
 
 import style from './post-details.styl'
 
-class PostDetails extends Component {
-  state = { }
-
+class PostDetails extends PureComponent {
   componentDidMount () {
     this.searchPost()
+    this.countComments()
   }
 
   searchPost = () => {
@@ -21,6 +21,13 @@ class PostDetails extends Component {
     const { postId } = match.params
 
     searchPost(postId)
+  }
+
+  countComments = () => {
+    const { searchComments, match } = this.props
+    const { postId } = match.params
+
+    searchComments(postId)
   }
 
   editPost = (id) => {
@@ -32,7 +39,7 @@ class PostDetails extends Component {
   }
 
   render () {
-    const { postDetail, match } = this.props
+    const { postDetail, match, countComments } = this.props
     const { postId } = match.params
 
     return (
@@ -46,16 +53,26 @@ class PostDetails extends Component {
         />
         <Title title={postDetail.title} />
         <Posting posting={postDetail.body} />
-        <Comments postId={postId} author={postDetail.author} />
+        <PostScore
+          commentScore={countComments}
+          voteScore={postDetail.voteScore}
+          onClickVoteUp={() => {}}
+          onClickVoteDown={() => {}}
+        />
+        <Comments
+          postId={postId}
+          author={postDetail.author}
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = ({ postDetails }) => ({
-  postDetail: postDetails.post
+  postDetail: postDetails.post,
+  countComments: postDetails.comments.length
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ searchPost }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ searchPost, searchComments }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostDetails)

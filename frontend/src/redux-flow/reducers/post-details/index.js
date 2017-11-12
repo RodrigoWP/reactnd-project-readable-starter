@@ -3,8 +3,13 @@
 import {
   SEARCH_POST,
   SEARCH_COMMENTS,
-  PUBLISH_NEW_COMMENT
+  PUBLISH_NEW_COMMENT,
+  PUBLISH_EDIT_COMMENT,
+  DELETE_COMMENT,
+  VOTE_UP_COMMENT,
+  VOTE_DOWN_COMMENT
 } from './actions'
+import { updateObjectInArrayById, removeObjectInArrayById } from 'utils/array'
 
 const initialState = {
   post: {},
@@ -30,6 +35,18 @@ const postDetails = (state = initialState, action) => {
           ...state.comments,
           action.payload
         ]
+      }
+    case PUBLISH_EDIT_COMMENT:
+    case VOTE_UP_COMMENT:
+    case VOTE_DOWN_COMMENT:
+      return {
+        ...state,
+        comments: updateObjectInArrayById(state.comments, action.payload)
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        comments: removeObjectInArrayById(state.comments, action.payload)
       }
   }
 

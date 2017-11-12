@@ -2,11 +2,16 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { searchComments, publishNewComment } from 'redux-flow/reducers/post-details/action-creators'
-import { apiPost, apiDelete, apiPut } from 'utils/api'
 import { monthDayFormatter } from 'utils/helpers'
 import { Button, VoteScore, CrudMenu } from 'components'
-import { v1 as uuid } from 'uuid'
+import {
+  searchComments,
+  publishNewComment,
+  publishEditComment,
+  deleteComment,
+  voteUpComment,
+  voteDownComment
+} from 'redux-flow/reducers/post-details/action-creators'
 
 import style from './comments.styl'
 
@@ -35,9 +40,9 @@ class Comments extends Component {
     })
   }
 
-  publishComment = async () => {
-    const { comment, editMode } = this.state
-    const { postId, author, publishNewComment } = this.props
+  publishComment = () => {
+    const { comment, editMode, idEdit } = this.state
+    const { postId, author, publishNewComment, publishEditComment } = this.props
 
     const payload = {
       timestamp: new Date(),
@@ -46,17 +51,13 @@ class Comments extends Component {
       parentId: postId
     }
 
-    publishNewComment(payload)
+    if (!editMode) {
+      publishNewComment(payload)
+    } else {
+      publishEditComment(idEdit, payload)
+    }
 
-    // if (editMode) {
-    //   const { idEdit } = this.state
-
-    //   await apiPut(`/comments/${idEdit}`, payload)
-    // } else {
-    //   await apiPost('/comments', { id: uuid(), ...payload })
-    // }
-
-    // this.clearComment()
+    this.clearComment()
   }
 
   clearComment = () => {
@@ -67,22 +68,6 @@ class Comments extends Component {
     })
   }
 
-  voteUp = async (id) => {
-    await apiPost(`comments/${id}`, {
-      option: 'upVote'
-    })
-
-    this.searchComments()
-  }
-
-  voteDown = async (id) => {
-    await apiPost(`comments/${id}`, {
-      option: 'downVote'
-    })
-
-    this.searchComments()
-  }
-
   editComment = (id, comment) => {
     this.setState({
       comment,
@@ -91,14 +76,9 @@ class Comments extends Component {
     })
   }
 
-  removeComment = async (id) => {
-    await apiDelete(`comments/${id}`)
-    this.searchComments()
-  }
-
   render () {
     const { comment, editMode } = this.state
-    const { comments } = this.props
+    const { comments, voteUpComment, voteDownComment, deleteComment } = this.props
 
     return (
       <div className={style.container}>
@@ -121,7 +101,7 @@ class Comments extends Component {
               <CrudMenu
                 id={comment.id}
                 handleEdit={id => this.editComment(id, comment.body)}
-                handleRemove={this.removeComment}
+                handleRemove={deleteComment}
               />
               <div className={style.authorComment}>
                 <span>{comment.author}</span>
@@ -133,9 +113,9 @@ class Comments extends Component {
               <div className={style.actionsComment}>
                 <VoteScore
                   count={comment.voteScore}
-                  onClickUp={() => this.voteUp(comment.id)}
-                  onClickDown={() => this.voteDown(comment.id)}
-              />
+                  onClickUp={() => voteUpComment(comment.id)}
+                  onClickDown={() => voteDownComment(comment.id)}
+                />
               </div>
             </div>
           ))}
@@ -154,6 +134,13 @@ const mapStateToProps = ({ postDetails }) => ({
   comments: postDetails.comments
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ searchComments, publishNewComment }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({
+  searchComments,
+  publishNewComment,
+  publishEditComment,
+  deleteComment,
+  voteUpComment,
+  voteDownComment
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments)

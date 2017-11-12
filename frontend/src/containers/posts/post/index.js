@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
 import { apiGet, apiPost } from 'utils/api'
-import { VoteScore, CommentScore, CrudMenu } from 'components'
+import { CrudMenu, PostScore } from 'components'
 import CategoryTag from './category-tag'
 
 import style from './post.styl'
@@ -83,11 +83,11 @@ class Post extends Component {
             <span>{monthDayFormatter(data.timestamp)}</span>
           </div>
           <div className={style.score}>
-            <CommentScore count={commentScore} />
-            <VoteScore
-              count={data.voteScore}
-              onClickUp={this.voteUp}
-              onClickDown={this.voteDown}
+            <PostScore
+              commentScore={commentScore}
+              voteScore={data.voteScore}
+              onClickVoteUp={this.voteUp}
+              onClickVoteDown={this.voteDown}
             />
           </div>
         </div>
