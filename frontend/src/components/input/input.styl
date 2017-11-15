@@ -1,0 +1,24 @@
+@import '~css/variables.styl'
+
+.container
+  > input
+    background-color $white
+    width 100%
+    font-size 14px
+    color $black
+    height 40px
+    outline 0
+    border 1px
+    border-radius 2px
+    box-shadow inset -1px 0 0 0 $gray, inset 0 -1px 0 0 $gray, inset 1px 0 0 0 $gray, inset 0 2px 0 0 $blueSemiLight
+    transition .25s box-shadow
+
+    &:focus
+      box-shadow inset -1px 0 0 0 $gray, inset 0 -1px 0 0 $gray, inset 1px 0 0 0 $gray, inset 0 2px 0 0 $blueSemiDark
+
+  > label
+    line-height 1.8rem
+    font-size 12px
+    font-weight 600
+    text-transform uppercase
+    color #3b495e

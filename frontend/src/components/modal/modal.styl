@@ -1,0 +1,72 @@
+@import '~css/variables.styl'
+
+.container
+  position relative
+  z-index 1
+  visibility hidden
+
+.open
+  visibility visible
+
+.background
+  background-color $blackDark
+  position fixed
+  display flex
+  justify-content center
+  align-items center
+  top 0
+  width 100%
+  height 100%
+  left 0
+  opacity 0.9
+  z-index 1000
+
+.wrapper
+  position fixed
+  top 0px
+  left 0px
+  width 100%
+  display flex
+  align-items center
+  justify-content center
+  height 100%
+  z-index 1001
+
+.body
+  position relative
+  background-color $white
+  width 500px
+  opacity 1
+  border-radius 2px
+  z-index 1001
+  display flex
+  flex-flow column
+  box-shadow 4px 4px 10px rgba(34, 45, 60, 0.72)
+
+.close
+  position absolute
+  right -30px
+  top 10px
+  color $white
+  font-size 32px
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+
+.header
+  padding 0px 20px
+  height 60px
+  display flex
+  align-items center
+  border-bottom solid 1px $graySemiLight
+
+  > span
+    color $black
+    width 100%
+    margin 0
+    font-size 18px
+    font-weight 600
+
+.content
+   padding 30px 20px

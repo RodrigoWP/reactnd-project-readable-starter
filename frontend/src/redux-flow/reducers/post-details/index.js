@@ -7,7 +7,9 @@ import {
   PUBLISH_EDIT_COMMENT,
   DELETE_COMMENT,
   VOTE_UP_COMMENT,
-  VOTE_DOWN_COMMENT
+  VOTE_DOWN_COMMENT,
+  VOTE_UP_POST,
+  VOTE_DOWN_POST
 } from './actions'
 import { updateObjectInArrayById, removeObjectInArrayById } from 'utils/array'
 

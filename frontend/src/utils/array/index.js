@@ -1,6 +1,6 @@
 'use strict'
 
-export const updateObjectInArrayById = (array, object) => {
+export const updateObjectInArrayById = (array = [], object = {}) => {
   return array.map((item, index) => {
     if (item.id !== object.id) {
       return item
@@ -13,4 +13,4 @@ export const updateObjectInArrayById = (array, object) => {
   })
 }
 
-export const removeObjectInArrayById = (array, id) => array.filter(item => item.id !== id)
+export const removeObjectInArrayById = (array = [], id = 0) => array.filter(item => item.id !== id)
