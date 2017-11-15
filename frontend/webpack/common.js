@@ -5,7 +5,8 @@ const { join } = require('path')
 const paths = {
   root: join(__dirname, '..'),
   src: join(__dirname, '..', 'src'),
-  dist: join(__dirname, '..', 'dist')
+  dist: join(__dirname, '..', 'dist'),
+  flexBoxGrid: join(__dirname, '..', 'node_modules', 'flexboxgrid', 'dist')
 }
 
 module.exports = {
@@ -57,7 +58,7 @@ module.exports = {
 
   cssLoader: {
     test: /\.css$/,
-    include: paths.src,
+    include: [paths.src, paths.flexBoxGrid],
     use: ['style-loader', 'css-loader']
   },
 
@@ -111,6 +112,7 @@ module.exports = {
       src: paths.src,
       css: join(paths.src, 'css'),
       components: join(paths.src, 'components'),
+      widgets: join(paths.src, 'widgets'),
       layout: join(paths.src, 'layout'),
       utils: join(paths.src, 'utils'),
       icons: join(paths.src, 'icons'),

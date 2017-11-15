@@ -6,7 +6,7 @@ import Header from './header'
 import Title from './title'
 import Posting from './posting'
 import Comments from './comments'
-import { PostScore } from 'components'
+import { PostScore } from 'widgets'
 
 import style from './post-details.styl'
 

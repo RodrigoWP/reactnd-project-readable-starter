@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { searchPosts } from 'redux-flow/reducers/posts/action-creators'
 import { monthDayFormatter } from 'utils/helpers'
 import { apiGet, apiPost } from 'utils/api'
-import { CrudMenu, PostScore } from 'components'
+import { CrudMenu, PostScore } from 'widgets'
 import CategoryTag from './category-tag'
 
 import style from './post.styl'

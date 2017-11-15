@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Dropdown } from '../dropdown'
+import { Dropdown } from 'components'
 
 import editIcon from 'icons/edit.svg'
 import removeIcon from 'icons/remove.svg'

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { monthDayFormatter } from 'utils/helpers'
-import { Button, VoteScore, CrudMenu } from 'components'
+import { Button, VoteScore } from 'components'
+import { CrudMenu } from 'widgets'
 import {
   searchComments,
   publishNewComment,
