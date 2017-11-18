@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Layout from 'layout'
 
-import Posts from './containers/posts'
+import Home from './containers/home'
 import PostDetails from './containers/post-details'
 
 import 'css/main.styl'
@@ -19,7 +19,8 @@ class App extends PureComponent {
         <Router>
           <Content>
             <Switch>
-              <Route exact path='/' component={Posts} />
+              <Route exact path='/' component={Home} />
+              <Route path='/:category' component={Home} />
               <Route path='/:postId' component={PostDetails} />
             </Switch>
           </Content>

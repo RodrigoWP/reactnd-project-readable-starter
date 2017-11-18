@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { monthDayFormatter } from 'utils/helpers'
-import { CrudMenu } from 'components'
+import { CrudMenu } from 'widgets'
 
 import style from './header.styl'
 

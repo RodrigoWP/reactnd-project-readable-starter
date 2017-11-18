@@ -1,3 +1,5 @@
 'use strict'
 
 export const SEARCH_POSTS = 'SEARCH_POSTS'
+export const SEARCH_CATEGORIES = 'SEARCH_CATEGORIES'
+export const SEARCH_POSTS_CATEGORY = 'SEARCH_POSTS_CATEGORY'
