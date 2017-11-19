@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -37,6 +38,7 @@ class Categories extends PureComponent {
           <Category
             category='todas'
             onClick={this.selectCategory}
+            hightlight={!categorySelected}
           />
         </div>
         {categories.map((category, index) => (
@@ -51,6 +53,10 @@ class Categories extends PureComponent {
       </div>
     )
   }
+}
+
+Categories.propTypes = {
+  categorySelected: PropTypes.string
 }
 
 const mapStateToProps = ({ posts }) => ({

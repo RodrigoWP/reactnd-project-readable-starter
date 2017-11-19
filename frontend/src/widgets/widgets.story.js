@@ -6,6 +6,7 @@ import { Button } from 'components'
 import { action } from '@storybook/addon-actions'
 import { PostForm } from './post-form'
 import { CrudMenu } from './crud-menu'
+import { PostScore } from './post-score'
 
 const stories = storiesOf('widgets', module)
 
@@ -49,4 +50,39 @@ stories.add('post-form', () => {
   }
 
   return <ModalFormStory />
+})
+
+stories.add('post-score', () => {
+  class PostScoreStory extends PureComponent {
+    state = {
+      voteScore: 0
+    }
+
+    onClickUpVote = () => {
+      this.setState(state => ({
+        voteScore: state.voteScore + 1
+      }))
+    }
+
+    onClickDownVote = () => {
+      this.setState(state => ({
+        voteScore: state.voteScore - 1
+      }))
+    }
+
+    render () {
+      const { commentScore, voteScore } = this.state
+
+      return (
+        <PostScore
+          commentScore={10}
+          voteScore={voteScore}
+          onClickVoteUp={this.onClickUpVote}
+          onClickVoteDown={this.onClickDownVote}
+        />
+      )
+    }
+  }
+
+  return <PostScoreStory />
 })
