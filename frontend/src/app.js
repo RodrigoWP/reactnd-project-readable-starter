@@ -19,9 +19,8 @@ class App extends PureComponent {
         <Router>
           <Content>
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/:category' component={Home} />
-              <Route path='/:postId' component={PostDetails} />
+              <Route exact path='/:category?' component={Home} />
+              <Route exact path='/:category/:postId' component={PostDetails} />
             </Switch>
           </Content>
         </Router>

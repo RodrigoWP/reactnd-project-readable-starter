@@ -56,7 +56,7 @@ class Post extends Component {
     const { history, data } = this.props
     const { id } = data
 
-    history.push(`/${id}`)
+    history.push(`/${data.category}/${id}`)
   }
 
   render () {

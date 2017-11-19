@@ -35,7 +35,7 @@ class Categories extends PureComponent {
       <div className={style.container}>
         <div className={style.categoryCol}>
           <Category
-            category="todas"
+            category='todas'
             onClick={this.selectCategory}
           />
         </div>
