@@ -44,25 +44,27 @@ class PostDetails extends PureComponent {
 
     return (
       <div className={style.container}>
-        <Header
-          postId={postId}
-          author={postDetail.author}
-          date={postDetail.timestamp}
-          handleEditPost={this.editPost}
-          handleRemovePost={this.removePost}
-        />
-        <Title title={postDetail.title} />
-        <Posting posting={postDetail.body} />
-        <PostScore
-          commentScore={countComments}
-          voteScore={postDetail.voteScore}
-          onClickVoteUp={() => {}}
-          onClickVoteDown={() => {}}
-        />
-        <Comments
-          postId={postId}
-          author={postDetail.author}
-        />
+        <div className={style.detailBody}>
+          <Header
+            postId={postId}
+            author={postDetail.author}
+            date={postDetail.timestamp}
+            handleEditPost={this.editPost}
+            handleRemovePost={this.removePost}
+          />
+          <Title title={postDetail.title} />
+          <Posting posting={postDetail.body} />
+          <PostScore
+            commentScore={countComments}
+            voteScore={postDetail.voteScore}
+            onClickVoteUp={() => {}}
+            onClickVoteDown={() => {}}
+          />
+          <Comments
+            postId={postId}
+            author={postDetail.author}
+          />
+        </div>
       </div>
     )
   }
