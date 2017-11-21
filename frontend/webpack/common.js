@@ -6,7 +6,8 @@ const paths = {
   root: join(__dirname, '..'),
   src: join(__dirname, '..', 'src'),
   dist: join(__dirname, '..', 'dist'),
-  flexBoxGrid: join(__dirname, '..', 'node_modules', 'flexboxgrid', 'dist')
+  flexBoxGrid: join(__dirname, '..', 'node_modules', 'flexboxgrid', 'dist'),
+  reactSelect: join(__dirname, '..', 'node_modules', 'react-select', 'dist')
 }
 
 module.exports = {
@@ -58,7 +59,7 @@ module.exports = {
 
   cssLoader: {
     test: /\.css$/,
-    include: [paths.src, paths.flexBoxGrid],
+    include: [paths.src, paths.flexBoxGrid, paths.reactSelect],
     use: ['style-loader', 'css-loader']
   },
 

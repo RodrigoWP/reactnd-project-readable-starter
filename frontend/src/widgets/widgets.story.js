@@ -4,7 +4,6 @@ import React, { PureComponent } from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from 'components'
 import { action } from '@storybook/addon-actions'
-import { PostForm } from './post-form'
 import { CrudMenu } from './crud-menu'
 import { PostScore } from './post-score'
 
@@ -19,38 +18,6 @@ stories.add('crud-menu', () => (
     />
   </div>
 ))
-
-stories.add('post-form', () => {
-  class ModalFormStory extends PureComponent {
-    state = {
-      open: false
-    }
-
-    toggleModal = () => {
-      this.setState(state => ({
-        open: !state.open
-      }))
-    }
-
-    render () {
-      const { open } = this.state
-
-      return (
-        <div>
-          <Button label='Abrir formulário' primary onClick={this.toggleModal} />
-
-          <PostForm
-            title='Novo post'
-            formIsOpen={open}
-            onClickClose={this.toggleModal}
-          />
-        </div>
-      )
-    }
-  }
-
-  return <ModalFormStory />
-})
 
 stories.add('post-score', () => {
   class PostScoreStory extends PureComponent {
@@ -71,7 +38,7 @@ stories.add('post-score', () => {
     }
 
     render () {
-      const { commentScore, voteScore } = this.state
+      const { voteScore } = this.state
 
       return (
         <PostScore

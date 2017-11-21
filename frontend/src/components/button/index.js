@@ -11,12 +11,14 @@ const Button = ({
   primary = false,
   width = '130px',
   height = '40px',
-  iconSize = '24px'
+  iconSize = '24px',
+  htmlType = 'button'
 }) => (
   <button
     className={css({[style.primary]: primary}, style.container)}
     style={{ width: width, height: height }}
     onClick={onClick}
+    type='htmlType'
   >
     {icon && <img src={icon} style={{ width: iconSize, height: iconSize }} />}
     {label && <span>{label}</span>}
