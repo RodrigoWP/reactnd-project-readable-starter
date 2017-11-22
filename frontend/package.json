@@ -16,19 +16,21 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/components/**/*.js",
-      "src/utils/**/*.js",
-      "!src/components/index.js",
+      "src/**/*.js",
       "!src/**/*.story.js",
-      "!src/index.js",
       "!src/utils/api/*.js",
+      "!src/redux-flow/reducers/index.js",
+      "!src/components/index.js",
+      "!src/index.js",
+      "!src/app.js",
+      "!src/root.js",
       "!config/*.js"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "^.+\\.(styl)$": "<rootDir>/config/css-stub.js",
+      "^.+\\.(styl|css)$": "<rootDir>/config/css-stub.js",
       "^.+\\.(svg|png)$": "<rootDir>/config/icon-stub.js",
       "^icons(.*)$": "<rootDir>/src/icons$1"
     },

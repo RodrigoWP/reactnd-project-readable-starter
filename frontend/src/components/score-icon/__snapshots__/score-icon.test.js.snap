@@ -2,9 +2,7 @@
 
 exports[`Should render correctly with count 1`] = `
 <div>
-  <img
-    src=""
-  />
+  <img />
   <span>
     1
   </span>
@@ -13,9 +11,7 @@ exports[`Should render correctly with count 1`] = `
 
 exports[`Should render correctly with out props 1`] = `
 <div>
-  <img
-    src=""
-  />
+  <img />
   <span>
     0
   </span>

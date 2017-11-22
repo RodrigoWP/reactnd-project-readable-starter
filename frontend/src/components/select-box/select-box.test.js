@@ -2,10 +2,12 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { CommentScore } from '.'
+import { SelectBox } from '.'
 
-it('Should render correctly without props', () => {
-  const component = <CommentScore />
+it('Should render correctly', () => {
+  const component = (
+    <SelectBox />
+  )
 
   expect(shallow(component)).toMatchSnapshot()
 })

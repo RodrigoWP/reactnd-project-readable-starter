@@ -11,7 +11,7 @@ const ScoreIcon = ({ icon, count, onClick }) => (
 )
 
 ScoreIcon.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   count: PropTypes.number.isRequired,
   onClick: PropTypes.func
 }
