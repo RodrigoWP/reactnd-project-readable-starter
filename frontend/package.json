@@ -2,8 +2,9 @@
   "scripts": {
     "start": "yarn dev",
     "dev": "webpack-dashboard -- node server.js",
-    "test": "jest --coverage",
-    "test:watch": "yarn test -- --watch",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "test:coverage": "yarn test --coverage",
     "lint": "standard --parser babel-eslint --verbose | snazzy",
     "lint:watch": "gulp",
     "lint:fix": "standard --parser babel-eslint --fix",
@@ -39,6 +40,7 @@
   "standard": {
     "globals": [
       "it",
+      "describe",
       "expect",
       "jest"
     ],

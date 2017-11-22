@@ -62,9 +62,8 @@ class Posts extends PureComponent {
             onClick={this.openNewForm}
           />
         </div>
-        <Categories key='categories' categorySelected={category} />
+        <Categories categorySelected={category} />
         <PostList
-          key='posts'
           categorySelected={category}
           editPost={this.openEditForm}
         />

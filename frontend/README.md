@@ -15,6 +15,7 @@
 - `yarn dev (or npm run dev)`: Starts the application on development mode
 - `yarn test (or npm test)`: Run tests once
 - `yarn test:watch (or npm run test:watch)`: Run tests in watch mode
+- `yarn test:coverage (or npm run test:coverage)`: Run coverage tests
 - `yarn build (or npm run build)`: Build project to production
 - `yarn build:analyzer (or npm run build:analyzer)`: Build project to production and open bundle analyzer on `8888` port
 - `yarn storybook (or npm run storybook)`: Run Storybook on `6006` port

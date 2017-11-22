@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { searchPosts, searchPostsByCategory } from 'redux-flow/reducers/posts/action-creators'
+import { orderDescArray } from 'utils/array'
 import Post from './post'
 import EmptyMessage from './empty-message'
 
@@ -48,7 +49,7 @@ PostList.propTypes = {
 }
 
 const mapStateToProps = ({ posts }) => ({
-  posts: posts.postsData
+  posts: orderDescArray(posts.postsData, 'voteScore')
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ searchPosts, searchPostsByCategory }, dispatch)

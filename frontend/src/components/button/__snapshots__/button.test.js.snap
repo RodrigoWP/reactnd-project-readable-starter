@@ -9,6 +9,7 @@ exports[`Should render correctly 1`] = `
       "width": "130px",
     }
   }
+  type="htmlType"
 >
   <span>
     default
