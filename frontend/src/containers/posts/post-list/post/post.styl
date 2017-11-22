@@ -1,0 +1,50 @@
+@import "~css/variables.styl"
+
+.container
+  width 460px
+  height 260px
+  padding 30px 20px 20px 30px
+  border-radius 2px
+  box-shadow 0 1px 2px 2px rgba(59, 73, 94, 0.3)
+  position relative
+
+.title
+  width 100%
+  display flex
+  justify-content space-between
+  > span
+    font-family $blogFont
+    font-size 22px
+    font-weight 600
+    width 90%
+    display block
+
+.body
+  > span
+    font-family $blogFont
+    font-size 16px
+    color $blackLight
+
+.footer
+  position absolute
+  bottom 20px
+  display flex
+  justify-content space-between
+  align-items center
+  width calc(100% - 60px)
+
+.author
+  display: flex
+  flex-direction column
+
+  > span
+    font-family $blogFont
+    font-size 16px
+  > span:nth-child(1)
+    color $blackDark
+  > span:nth-child(2)
+    color $blackLight
+
+.score
+  position relative
+

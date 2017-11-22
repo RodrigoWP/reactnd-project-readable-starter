@@ -20,7 +20,7 @@ const Header = ({ postId, author, date, handleEditPost, handleRemovePost }) => (
 Header.propTypes = {
   postId: PropTypes.string.isRequired,
   author: PropTypes.string,
-  date: PropTypes.string,
+  date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleEditPost: PropTypes.func,
   handleRemovePost: PropTypes.func
 }
