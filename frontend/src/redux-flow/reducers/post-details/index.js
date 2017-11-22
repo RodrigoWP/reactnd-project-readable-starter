@@ -7,7 +7,9 @@ import {
   PUBLISH_EDIT_COMMENT,
   DELETE_COMMENT,
   VOTE_UP_COMMENT,
-  VOTE_DOWN_COMMENT
+  VOTE_DOWN_COMMENT,
+  VOTE_UP_POST_DETAIL,
+  VOTE_DOWN_POST_DETAIL
 } from './actions'
 import { updateObjectInArrayById, removeObjectInArrayById } from 'utils/array'
 
@@ -47,6 +49,12 @@ const postDetails = (state = initialState, action) => {
       return {
         ...state,
         comments: removeObjectInArrayById(state.comments, action.payload)
+      }
+    case VOTE_UP_POST_DETAIL:
+    case VOTE_DOWN_POST_DETAIL:
+      return {
+        ...state,
+        post: action.payload
       }
   }
 

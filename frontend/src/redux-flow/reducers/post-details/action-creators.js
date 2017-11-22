@@ -7,7 +7,9 @@ import {
   PUBLISH_EDIT_COMMENT,
   DELETE_COMMENT,
   VOTE_UP_COMMENT,
-  VOTE_DOWN_COMMENT
+  VOTE_DOWN_COMMENT,
+  VOTE_UP_POST_DETAIL,
+  VOTE_DOWN_POST_DETAIL
  } from './actions'
 import { apiGet, apiPost, apiPut, apiDelete } from 'utils/api'
 import { v1 as uuid } from 'uuid'
@@ -55,4 +57,16 @@ export const voteDownComment = id => dispatch => {
   })
     .then(response => response.data)
     .then(data => dispatch({ type: VOTE_DOWN_COMMENT, payload: data }))
+}
+
+export const voteUpPost = id => dispatch => {
+  apiPost(`posts/${id}`, {
+    option: 'upVote'
+  }).then(({ data }) => dispatch({ type: VOTE_UP_POST_DETAIL, payload: data }))
+}
+
+export const voteDownPost = id => dispatch => {
+  apiPost(`posts/${id}`, {
+    option: 'downVote'
+  }).then(({ data }) => dispatch({ type: VOTE_DOWN_POST_DETAIL, payload: data }))
 }

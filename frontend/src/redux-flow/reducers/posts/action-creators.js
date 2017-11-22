@@ -3,9 +3,12 @@
 import {
   SEARCH_POSTS,
   SEARCH_CATEGORIES,
-  SEARCH_POSTS_CATEGORY
+  SEARCH_POSTS_CATEGORY,
+  VOTE_UP_POST,
+  VOTE_DOWN_POST,
+  DELETE_POST
 } from './actions'
-import { apiGet } from 'utils/api'
+import { apiGet, apiPost, apiDelete } from 'utils/api'
 
 export const searchPosts = () => dispatch => {
   apiGet('posts')
@@ -29,4 +32,21 @@ export const searchPostsByCategory = category => dispatch => {
     .then((data) => {
       dispatch({ type: SEARCH_POSTS_CATEGORY, payload: data })
     })
+}
+
+export const voteUpPost = id => dispatch => {
+  apiPost(`posts/${id}`, {
+    option: 'upVote'
+  }).then(({ data }) => dispatch({ type: VOTE_UP_POST, payload: data }))
+}
+
+export const voteDownPost = id => dispatch => {
+  apiPost(`posts/${id}`, {
+    option: 'downVote'
+  }).then(({ data }) => dispatch({ type: VOTE_DOWN_POST, payload: data }))
+}
+
+export const deletePost = id => dispatch => {
+  apiDelete(`posts/${id}`)
+    .then(() => dispatch({ type: DELETE_POST, payload: id }))
 }

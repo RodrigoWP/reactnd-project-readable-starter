@@ -2,7 +2,6 @@
 
 import React, { PureComponent } from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button } from 'components'
 import { action } from '@storybook/addon-actions'
 import { CrudMenu } from './crud-menu'
 import { PostScore } from './post-score'
