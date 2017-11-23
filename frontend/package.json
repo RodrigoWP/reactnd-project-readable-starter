@@ -17,6 +17,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
+      "!src/containers/**/*.js",
       "!src/**/*.story.js",
       "!src/utils/api/*.js",
       "!src/redux-flow/reducers/index.js",
