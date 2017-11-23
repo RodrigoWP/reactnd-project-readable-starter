@@ -13,7 +13,7 @@ import {
 } from './actions'
 import { updateObjectInArrayById, removeObjectInArrayById } from 'utils/array'
 
-const initialState = {
+export const initialState = {
   post: {},
   comments: []
 }

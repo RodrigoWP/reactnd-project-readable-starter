@@ -33,7 +33,8 @@
     "moduleNameMapper": {
       "^.+\\.(styl|css)$": "<rootDir>/config/css-stub.js",
       "^.+\\.(svg|png)$": "<rootDir>/config/icon-stub.js",
-      "^icons(.*)$": "<rootDir>/src/icons$1"
+      "^icons(.*)$": "<rootDir>/src/icons$1",
+      "^utils(.*)$": "<rootDir>/src/utils$1"
     },
     "setupFiles": [
       "raf/polyfill",
@@ -63,6 +64,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "cross-env": "^5.1.0",
     "css-loader": "^0.28.7",
+    "deep-freeze": "^0.0.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "enzyme-to-json": "^3.1.4",
