@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { monthDayFormatter } from 'utils/helpers'
+import { orderDescArray } from 'utils/array'
 import { Button, VoteScore } from 'components'
 import { CrudMenu } from 'widgets'
 import {
@@ -132,7 +133,7 @@ Comments.propTypes = {
 }
 
 const mapStateToProps = ({ postDetails }) => ({
-  comments: postDetails.comments
+  comments: orderDescArray(postDetails.comments, 'timestamp')
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

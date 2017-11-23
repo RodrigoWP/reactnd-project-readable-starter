@@ -13,6 +13,7 @@ import {
  } from './actions'
 import { apiGet, apiPost, apiPut, apiDelete } from 'utils/api'
 import { v1 as uuid } from 'uuid'
+import { Notify } from 'components'
 
 export const searchPost = postId => dispatch => {
   apiGet(`posts/${postId}`)
@@ -41,6 +42,7 @@ export const publishEditComment = (id, payload) => dispatch => {
 export const deleteComment = id => dispatch => {
   apiDelete(`comments/${id}`)
     .then(() => dispatch({ type: DELETE_COMMENT, payload: id }))
+    .then(() => Notify.success('Comment removed with success'))
 }
 
 export const voteUpComment = id => dispatch => {

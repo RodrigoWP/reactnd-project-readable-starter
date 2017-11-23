@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Modal, Input, Button, Textarea, SelectBox } from 'components'
+import { Modal, Input, Button, Textarea, SelectBox, Notify } from 'components'
 import { Row, Col } from 'react-flexbox-grid'
 import { apiGet, apiPost, apiPut } from 'utils/api'
 import { v1 as uuid } from 'uuid'
@@ -57,6 +57,7 @@ class PostForm extends PureComponent {
       await apiPost('/posts', { id: uuid(), ...payload })
     }
 
+    Notify.success(`Post ${postId ? 'edited' : 'saved'} with success`)
     onClickClose()
     handleRefresh(this.state.category)
   }

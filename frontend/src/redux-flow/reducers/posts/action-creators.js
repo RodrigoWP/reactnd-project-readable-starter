@@ -9,6 +9,7 @@ import {
   DELETE_POST
 } from './actions'
 import { apiGet, apiPost, apiDelete } from 'utils/api'
+import { Notify } from 'components'
 
 export const searchPosts = () => dispatch => {
   apiGet('posts')
@@ -49,4 +50,5 @@ export const voteDownPost = id => dispatch => {
 export const deletePost = id => dispatch => {
   apiDelete(`posts/${id}`)
     .then(() => dispatch({ type: DELETE_POST, payload: id }))
+    .then(() => Notify.success('Post removed with success'))
 }

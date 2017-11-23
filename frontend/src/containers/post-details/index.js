@@ -10,6 +10,7 @@ import Comments from './comments'
 import { PostScore } from 'widgets'
 import PostForm from '../posts/post-form'
 import { apiDelete } from 'utils/api'
+import { Notify } from 'components'
 
 import style from './post-details.styl'
 
@@ -54,6 +55,7 @@ class PostDetails extends PureComponent {
   removePost = async (id) => {
     await apiDelete(`posts/${id}`)
     this.closePostDetail()
+    Notify.success('Post removed with success')
   }
 
   closePostDetail = () => {
