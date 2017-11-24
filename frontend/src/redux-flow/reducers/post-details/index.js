@@ -21,6 +21,8 @@ export const initialState = {
 const postDetails = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_POST:
+    case VOTE_UP_POST_DETAIL:
+    case VOTE_DOWN_POST_DETAIL:
       return {
         ...state,
         post: action.payload
@@ -49,12 +51,6 @@ const postDetails = (state = initialState, action) => {
       return {
         ...state,
         comments: removeObjectInArrayById(state.comments, action.payload)
-      }
-    case VOTE_UP_POST_DETAIL:
-    case VOTE_DOWN_POST_DETAIL:
-      return {
-        ...state,
-        post: action.payload
       }
   }
 

@@ -10,6 +10,10 @@ describe('array', () => {
 
       expect(updateObjectInArrayById(array, objectUpdate)).to.be.deep.equal(result)
     })
+
+    it('Whitout params should be return empty array', () => {
+      expect(updateObjectInArrayById()).to.be.deep.equal([])
+    })
   })
 
   describe('removeObjectInArrayById', () => {
@@ -19,6 +23,10 @@ describe('array', () => {
       const result = [{ id: 1, name: 'obj2' }]
 
       expect(removeObjectInArrayById(array, removeId)).to.be.deep.equal(result)
+    })
+
+    it('Whitout params should be return empty array', () => {
+      expect(removeObjectInArrayById()).to.be.deep.equal([])
     })
   })
 

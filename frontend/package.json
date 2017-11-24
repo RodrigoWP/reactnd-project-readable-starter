@@ -17,11 +17,14 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "!src/containers/**/*.js",
+      "!src/widgets/index.js",
+      "!src/widgets/crud-menu/*.js",
       "!src/**/*.story.js",
       "!src/utils/api/*.js",
       "!src/redux-flow/reducers/index.js",
+      "!src/redux-flow/reducers/**/action-creators.js",
       "!src/components/index.js",
+      "!src/components/notify/*.js",
       "!src/index.js",
       "!src/app.js",
       "!src/root.js",
@@ -34,7 +37,9 @@
       "^.+\\.(styl|css)$": "<rootDir>/config/css-stub.js",
       "^.+\\.(svg|png)$": "<rootDir>/config/icon-stub.js",
       "^icons(.*)$": "<rootDir>/src/icons$1",
-      "^utils(.*)$": "<rootDir>/src/utils$1"
+      "^utils(.*)$": "<rootDir>/src/utils$1",
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^widgets(.*)$": "<rootDir>/src/widgets$1"
     },
     "setupFiles": [
       "raf/polyfill",

@@ -10,12 +10,12 @@ import {
 } from './actions'
 import { updateObjectInArrayById, removeObjectInArrayById } from 'utils/array'
 
-export const initiaState = {
+export const initialState = {
   postsData: [],
   categories: []
 }
 
-const posts = (state = initiaState, action) => {
+const posts = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_POSTS_CATEGORY:
     case SEARCH_POSTS:

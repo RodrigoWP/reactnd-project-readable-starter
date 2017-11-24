@@ -5,7 +5,7 @@ import style from './posting.styl'
 
 const Posting = ({ posting }) => (
   <div className={style.container}>
-    {<span>{posting}</span>}
+    <span>{posting}</span>
   </div>
 )
 
