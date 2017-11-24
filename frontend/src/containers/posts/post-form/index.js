@@ -69,7 +69,7 @@ class PostForm extends PureComponent {
 
     return (
       <Modal
-        title={editMode ? 'Editar post' : 'Novo post'}
+        title={editMode ? 'Edit post' : 'New post'}
         open
         onClickClose={onClickClose}>
         <form onSubmit={this.savePost}>
@@ -122,7 +122,7 @@ class PostForm extends PureComponent {
           </Row>
           <div className={style.footer}>
             <Button
-              label={editMode ? 'Atualizar post' : 'Salvar'}
+              label={editMode ? 'Update post' : 'Save'}
               primary
               htmlType='submit'
             />

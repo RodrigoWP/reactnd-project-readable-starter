@@ -7,8 +7,8 @@
 ## Up and running
 
 - Install dependencies: `yarn` (or `npm i`);
-- Run `yarn dev` (or `npm start`) to develop on `http://localhost:3000`
-- Run `yarn build` (or `npm run build`) for production build (files will be generated on `dist` directory)
+- Run `yarn dev` (or `npm run dev`) to develop on `http://localhost:3000`
+- Run `yarn build` (or `npm run build`) for production build (files will be generated in the `dist` directory)
 
 ## Scripts
 

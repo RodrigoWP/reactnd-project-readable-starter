@@ -35,9 +35,9 @@ export class Post extends Component {
 
   navigateToPost = () => {
     const { history, data } = this.props
-    const { id } = data
+    const { id, category } = data
 
-    history.push(`/${data.category}/${id}`)
+    history.push(`/${category}/${id}`)
   }
 
   render () {

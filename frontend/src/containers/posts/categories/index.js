@@ -10,6 +10,8 @@ import { CategoryBadge } from 'components'
 
 import style from './categories.styl'
 
+const ALL_CATEGORIES = 'all'
+
 class Categories extends PureComponent {
   componentDidMount () {
     const { searchCategories } = this.props
@@ -20,7 +22,7 @@ class Categories extends PureComponent {
   selectCategory = (category) => {
     const { history, searchPostsByCategory, searchPosts } = this.props
 
-    if (category === 'todas') {
+    if (category === ALL_CATEGORIES) {
       searchPosts()
       history.replace(`/`)
     } else {
@@ -36,7 +38,7 @@ class Categories extends PureComponent {
       <div className={style.container}>
         <div className={style.categoryCol}>
           <CategoryBadge
-            category='todas'
+            category={ALL_CATEGORIES}
             onClick={this.selectCategory}
             hightlight={!categorySelected}
           />

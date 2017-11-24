@@ -16,7 +16,7 @@ import style from './posts.styl'
 
 class Posts extends PureComponent {
   state = {
-    postFormOpem: false,
+    postFormOpen: false,
     postId: null
   }
 
@@ -30,7 +30,7 @@ class Posts extends PureComponent {
 
   toggleForm = () => {
     this.setState(state => ({
-      postFormOpem: !state.postFormOpem
+      postFormOpen: !state.postFormOpen
     }))
   }
 
@@ -50,7 +50,7 @@ class Posts extends PureComponent {
   render () {
     const { match } = this.props
     const { category } = match.params
-    const { postFormOpem, postId } = this.state
+    const { postFormOpen, postId } = this.state
 
     return (
       <div className={style.container}>
@@ -67,7 +67,7 @@ class Posts extends PureComponent {
           categorySelected={category}
           editPost={this.openEditForm}
         />
-        {postFormOpem &&
+        {postFormOpen &&
           <PostForm
             postId={postId}
             onClickClose={this.toggleForm}

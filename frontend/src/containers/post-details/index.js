@@ -16,7 +16,7 @@ import style from './post-details.styl'
 
 class PostDetails extends PureComponent {
   state = {
-    postFormOpem: false
+    postFormOpen: false
   }
 
   componentDidMount () {
@@ -48,7 +48,7 @@ class PostDetails extends PureComponent {
 
   toggleForm = () => {
     this.setState(state => ({
-      postFormOpem: !state.postFormOpem
+      postFormOpen: !state.postFormOpen
     }))
   }
 
@@ -65,7 +65,7 @@ class PostDetails extends PureComponent {
   }
 
   render () {
-    const { postFormOpem } = this.state
+    const { postFormOpen } = this.state
     const { postDetail, match, countComments, voteUpPost, voteDownPost } = this.props
     const { postId } = match.params
 
@@ -82,7 +82,7 @@ class PostDetails extends PureComponent {
           <Title
             title={postDetail.title}
             category={postDetail.category}
-            />
+          />
           <Posting posting={postDetail.body} />
           <PostScore
             commentScore={countComments}
@@ -95,7 +95,7 @@ class PostDetails extends PureComponent {
             author={postDetail.author}
           />
         </div>
-        {postFormOpem &&
+        {postFormOpen &&
           <PostForm
             postId={postId}
             onClickClose={this.closeEditForm}
