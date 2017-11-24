@@ -1,4 +1,5 @@
 'use strict'
+
 import Axios from 'axios'
 
 const AxiosInstance = Axios.create({

@@ -14,7 +14,7 @@ import icnExpand from 'icons/icn-expand.svg'
 
 import style from './post.styl'
 
-class Post extends Component {
+export class Post extends Component {
   state = {
     commentScore: 0
   }

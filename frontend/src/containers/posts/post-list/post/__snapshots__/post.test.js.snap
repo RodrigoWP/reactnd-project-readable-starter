@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<div>
+  <CategoryTag
+    category="category"
+  />
+  <CrudMenu
+    handleEdit={[Function]}
+    handleRemove={[Function]}
+    id="0"
+  />
+  <div>
+    <span />
+  </div>
+  <div>
+    <span />
+  </div>
+  <div>
+    <div>
+      <span />
+      <span>
+        Invalid date
+      </span>
+    </div>
+    <div>
+      <PostScore
+        commentScore={0}
+        onClickVoteDown={[Function]}
+        onClickVoteUp={[Function]}
+      />
+    </div>
+    <Button
+      height="40px"
+      icon=""
+      onClick={[Function]}
+      width="40px"
+    />
+  </div>
+</div>
+`;

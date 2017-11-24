@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<Modal
+  onClickClose={[Function]}
+  open={true}
+  title="Novo post"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Row>
+      <Col
+        xs={true}
+      >
+        <Input
+          label="title"
+          name="title"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </Col>
+      <Col
+        xs={true}
+      >
+        <Input
+          label="author"
+          name="author"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col
+        xs={true}
+      >
+        <SelectBox
+          label="Category"
+          onChange={[Function]}
+          options={
+            Array [
+              Object {
+                "label": "react",
+                "value": "react",
+              },
+              Object {
+                "label": "redux",
+                "value": "redux",
+              },
+              Object {
+                "label": "udacity",
+                "value": "udacity",
+              },
+            ]
+          }
+          placeholder="Select a category"
+          required={true}
+          value="react"
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col
+        xs={true}
+      >
+        <Textarea
+          label="posting"
+          name="body"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </Col>
+    </Row>
+    <div>
+      <Button
+        htmlType="submit"
+        label="Salvar"
+        primary={true}
+      />
+    </div>
+  </form>
+</Modal>
+`;
