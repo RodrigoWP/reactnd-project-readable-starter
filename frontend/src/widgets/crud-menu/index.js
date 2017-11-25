@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from 'components'
 
@@ -9,17 +9,7 @@ import style from './crud-menu.styl'
 
 const { DropdownItem } = Dropdown
 
-class CrudMenu extends Component {
-  state = {
-    open: false
-  }
-
-  toggleDropdown = () => {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
+class CrudMenu extends PureComponent {
   onEdit = () => {
     const { id, handleEdit } = this.props
 
@@ -35,10 +25,8 @@ class CrudMenu extends Component {
   }
 
   render () {
-    const { open } = this.state
-
     return (
-      <Dropdown open={open} onClick={this.toggleDropdown} className={style.container}>
+      <Dropdown className={style.container}>
         <DropdownItem onClick={this.onEdit} icon={editIcon} label='Editar' />
         <DropdownItem onClick={this.onRemove} icon={removeIcon} label='Excluir' />
       </Dropdown>

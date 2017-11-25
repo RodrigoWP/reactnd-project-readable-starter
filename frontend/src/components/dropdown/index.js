@@ -1,24 +1,49 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import css from 'strclass'
 import Item from './dropdown-item'
+import ClickOutside from './click-outside'
 
 import menuIcon from 'icons/action-menu.svg'
 import style from './dropdown.styl'
 
-const Dropdown = ({ onClick, children, open = false, className }) => (
-  <div className={className}>
-    <img className={style.action} src={menuIcon} onClick={onClick} />
-    <div className={css({ [style.show]: open }, style.dropdown)}>
-      {children}
-    </div>
-  </div>
-)
+class Dropdown extends Component {
+  state = {
+    open: false
+  }
+
+  toggle = () => {
+    this.setState(state => ({
+      open: !state.open
+    }))
+  }
+
+  hide = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render () {
+    const { open } = this.state
+    const { children, className } = this.props
+
+    return (
+      <div className={className}>
+        <img className={style.action} src={menuIcon} onClick={this.toggle} />
+        <ClickOutside onClickOutside={this.hide}>
+          {open &&
+            <div className={style.dropdown}>
+              {React.Children.map(children, child => React.cloneElement(child, { onCloseContainer: this.hide }))}
+            </div>
+          }
+        </ClickOutside>
+      </div>
+    )
+  }
+}
 
 Dropdown.propTypes = {
-  onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
-  open: PropTypes.bool,
   className: PropTypes.string
 }
 

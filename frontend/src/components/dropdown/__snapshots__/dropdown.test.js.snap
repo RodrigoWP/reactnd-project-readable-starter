@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render DropdownItem correctly 1`] = `
-<li>
+<li
+  onClick={[Function]}
+>
   <span />
 </li>
 `;
@@ -9,10 +11,11 @@ exports[`Should render DropdownItem correctly 1`] = `
 exports[`Should render correctly 1`] = `
 <div>
   <img
+    onClick={[Function]}
     src=""
   />
-  <div
-    className=""
+  <ClickOutside
+    onClickOutside={[Function]}
   />
 </div>
 `;

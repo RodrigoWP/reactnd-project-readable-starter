@@ -20,21 +20,6 @@ it('Should render DropdownItem correctly', () => {
   expect(shallow(component)).toMatchSnapshot()
 })
 
-it('Should call onClick when to click in the item', () => {
-  const onClick = jest.fn()
-
-  const component = mount(
-    <DropdownItem
-      label=''
-      onClick={onClick}
-    />
-  )
-
-  component.find('li').simulate('click')
-
-  expect(onClick).toHaveBeenCalledTimes(1)
-})
-
 it('When prop icon is not null should render img element', () => {
   const component = mount(
     <DropdownItem label='' icon='icon' />
