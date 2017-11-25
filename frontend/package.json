@@ -111,6 +111,7 @@
     "react-router-dom": "^4.2.2",
     "react-select": "^1.0.0-rc.10",
     "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "standard": "^10.0.3",
     "strclass": "^2.0.9",

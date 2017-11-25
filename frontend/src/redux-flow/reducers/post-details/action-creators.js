@@ -16,9 +16,9 @@ import { v1 as uuid } from 'uuid'
 import { Notify } from 'components'
 
 export const searchPost = postId => dispatch => {
-  apiGet(`posts/${postId}`)
-    .then(response => response.data)
-    .then(data => dispatch({ type: SEARCH_POST, payload: data }))
+  return apiGet(`posts/${postId}`)
+          .then(response => response.data)
+          .then(data => dispatch({ type: SEARCH_POST, payload: data }))
 }
 
 export const searchComments = postId => dispatch => {

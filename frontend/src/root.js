@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxThunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 import App from './app'
 
@@ -9,7 +10,7 @@ import reducers from 'redux-flow/reducers'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore)
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
 
 const Root = () => (
   <Provider store={createStoreWithMiddleware(reducers, devTools)}>

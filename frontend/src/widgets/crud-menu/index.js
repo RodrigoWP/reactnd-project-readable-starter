@@ -14,14 +14,12 @@ class CrudMenu extends PureComponent {
     const { id, handleEdit } = this.props
 
     handleEdit(id)
-    this.toggleDropdown()
   }
 
   onRemove = () => {
     const { id, handleRemove } = this.props
 
     handleRemove(id)
-    this.toggleDropdown()
   }
 
   render () {

@@ -20,10 +20,10 @@ class ClickOutside extends Component {
   }
 
   render () {
-    const { children, ...props } = this.props
+    const { children } = this.props
 
     return (
-      <div {...props} ref={node => { this.container = node }}>
+      <div ref={node => { this.container = node }}>
         {children}
       </div>
     )

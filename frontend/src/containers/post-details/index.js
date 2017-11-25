@@ -24,11 +24,21 @@ class PostDetails extends PureComponent {
     this.countComments()
   }
 
-  searchPost = () => {
+  searchPost = async () => {
     const { searchPost, match } = this.props
     const { postId } = match.params
 
-    searchPost(postId)
+    await searchPost(postId)
+    this.validatePostDetailExists()
+  }
+
+  validatePostDetailExists = () => {
+    const { postDetail } = this.props
+    const isEmpty = Object.keys(postDetail).length === 0
+
+    if (isEmpty) {
+      this.closePostDetail()
+    }
   }
 
   countComments = () => {
@@ -61,7 +71,7 @@ class PostDetails extends PureComponent {
   closePostDetail = () => {
     const { history } = this.props
 
-    history.goBack()
+    history.replace('/')
   }
 
   render () {
